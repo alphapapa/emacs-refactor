@@ -34,15 +34,6 @@
 ;; suddenly our examples don't contain valid elisp.
 (setq text-quoting-style 'straight)
 
-(defmacro check (desc &rest body)
-  "Wrap `ert-deftest' with a simpler interface.
-DESC is a string describing the test.
-BODY lists the forms to be executed."
-  (declare (indent 1))
-  `(ert-deftest
-       ,(intern (replace-regexp-in-string "[ .]" "_" desc)) ()
-     ,@body))
-
 (defun should= (x y)
   "Assert that objects X and Y are equal."
   (should (equal x y)))
